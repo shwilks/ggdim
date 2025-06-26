@@ -1,0 +1,13 @@
+Package: ggdim
+Title: Function for standardising ggplot dimensions
+Version: 0.0.0.9000
+Authors@R: 
+    person("Samuel", "Wilks", , "sam.wilks@unimelb.edu.au", role = c("aut", "cre"))
+Description: A set of functions for helping maintain consistent plot sizes 
+    for ggplots.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
+Imports: 
+    ggplot2
