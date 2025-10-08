@@ -86,3 +86,42 @@ get_panel_size <- function(gt, panel_index) {
     panel_height = panel_height
   )
 }
+
+#' @export
+apply_size_attributes <- function(
+  plot,
+  panel_width,
+  panel_height
+) {
+  sizing <- panel2plotsize(
+    plot = plot,
+    panel_width = panel_width,
+    panel_height = panel_height
+  )
+
+  attr(plot, "ggdim.panel_width") <- sizing$panel_width
+  attr(plot, "ggdim.panel_height") <- sizing$panel_height
+  attr(plot, "ggdim.total_width") <- sizing$total_width
+  attr(plot, "ggdim.total_height") <- sizing$total_height
+
+  plot
+}
+
+#' @export
+get_size_attributes <- function(plot) {
+  list(
+    panel_width = attr(plot, "ggdim.panel_width"),
+    panel_height = attr(plot, "ggdim.panel_height"),
+    total_width = attr(plot, "ggdim.total_width"),
+    total_height = attr(plot, "ggdim.total_height")
+  )
+}
+
+#' @export
+copy_attributes <- function(a, b) {
+  attr(a, "ggdim.panel_width") <- attr(b, "ggdim.panel_width")
+  attr(a, "ggdim.panel_height") <- attr(b, "ggdim.panel_height")
+  attr(a, "ggdim.total_width") <- attr(b, "ggdim.total_width")
+  attr(a, "ggdim.total_height") <- attr(b, "ggdim.total_height")
+  a
+}
